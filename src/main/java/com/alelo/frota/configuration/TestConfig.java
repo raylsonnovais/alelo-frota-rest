@@ -35,7 +35,7 @@ public class TestConfig implements CommandLineRunner {
 		
 		logger.info("Iniciado cadastro!");
 
-		for(int i = 0; i < 30 ; i++) {
+		for(int i = 0; i < 50 ; i++) {
 			Vehicle v = new Vehicle();
 			
 			v.setPlate(generatePlate());

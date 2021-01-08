@@ -48,7 +48,7 @@ public class VehicleService {
 	
 	public Vehicle update(Long id ,Vehicle vehicle) {
 		try {
-			Vehicle entity = repository.getOne(id);
+			Vehicle entity = findById(id);
 			updateData(entity, vehicle);
 			return repository.save(entity);
 		} catch (EntityNotFoundException e) {
@@ -65,8 +65,8 @@ public class VehicleService {
 	}
 	
 	
-	public Page<Vehicle> findPaginator(){
-		return repository.findAll(new QPageRequest(0, 10));
+	public Page<Vehicle> findPaginator(String page, String limit){
+		return repository.findAll(new QPageRequest(Integer.parseInt(page), Integer.parseInt(limit)));
 	}
 	
 	private void updateData(Vehicle entity, Vehicle obj) {
